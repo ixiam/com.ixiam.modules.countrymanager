@@ -6,6 +6,10 @@
  */
 class CRM_Admin_Form_StateProvince extends CRM_Admin_Form {
 
+  public function getDefaultEntity(){
+    return 'StateProvince';
+  }
+
   /**
    * Function to build the form
    *

@@ -6,6 +6,10 @@
  */
 class CRM_Admin_Form_Country extends CRM_Admin_Form {
 
+  public function getDefaultEntity(){
+    return 'Country';
+  }
+
   /**
    * Function to build the form
    *

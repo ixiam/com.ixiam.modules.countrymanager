@@ -5,6 +5,10 @@
  */
 class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
 
+  public function getDefaultEntity(){
+    return 'WorldRegion';
+  }
+
   /**
    * Function to build the form
    *

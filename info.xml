@@ -12,12 +12,19 @@
   <version>1.0</version>
   <develStage>stable</develStage>
   <compatibility>
-    <ver>4.2</ver>
-    <ver>4.3</ver>
-    <ver>4.4</ver>
+    <ver>5.27</ver>
   </compatibility>
   <comments>Manage world regions, countries and states</comments>
   <civix>
     <namespace>CRM/Countrymanager</namespace>
+    <format>23.02.1</format>
   </civix>
+  <mixins>
+    <mixin>menu-xml@1.0.0</mixin>
+    <mixin>smarty-v2@1.0.1</mixin>
+  </mixins>
+  <classloader>
+    <psr0 prefix="CRM_" path="."/>
+    <psr4 prefix="Civi\" path="Civi"/>
+  </classloader>
 </extension>
