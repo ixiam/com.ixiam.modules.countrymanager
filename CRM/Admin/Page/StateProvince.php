@@ -82,7 +82,7 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
     
     $pager = new CRM_Utils_Pager($params);
 
-    $this->assign_by_ref('pager', $pager);
+    $this->assign('pager', $pager);
 
   }
 
