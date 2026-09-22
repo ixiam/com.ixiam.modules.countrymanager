@@ -29,15 +29,15 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
    */
   function &links() {
     if (!(self::$_links)) {
-      self::$_links = array( 
+      self::$_links = [
         CRM_Core_Action::UPDATE =>
-        array(
+        [
           'name' => ts('Edit'),
           'url' => 'civicrm/admin/stateprovince',
           'qs' => 'action=update&id=%%id%%&reset=1',
           'title' => ts('Edit World Region'),
-        ),               
-      );
+        ],
+      ];
     }
     return self::$_links;
   }
@@ -56,7 +56,7 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
     $rows = CRM_Countrymanager_BAO_StateProvince::getListStateProvince($country_id);    
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,
-        array('id' => $value['id'])
+        ['id' => $value['id']]
       );
     }
     $crmPID = CRM_Utils_Request::retrieve('crmPID', 'Integer', CRM_Core_DAO::$_nullObject) ;
@@ -65,20 +65,20 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
       $crmPID = $crmPID - 1 ;
     }
 
-    $rowsToShow = array();
+    $rowsToShow = [];
 
     $rowsToShow = array_slice($rows, $this->_rowCount*$crmPID, $this->_rowCount);    
     
     $this->assign('rows', $rowsToShow);
 
-    $params = array(
+    $params = [
       'total' => count($rows),
       'rowCount' => $this->_rowCount,
       'status' => ts('Records %%StatusMessage%%'),
       'buttonBottom' => 'PagerBottomButton',
       'buttonTop' => 'PagerTopButton',
       'pageID' => "civicrm/admin/stateprovince?action=browse&force=1",
-    );
+    ];
     
     $pager = new CRM_Utils_Pager($params);
 

@@ -21,13 +21,13 @@ class CRM_Admin_Form_Country extends CRM_Admin_Form {
 
     $worldRegions = CRM_Countrymanager_BAO_WorldRegion::getListWorldRegion();
 
-    $worldRegionsSelect = array();
+    $worldRegionsSelect = [];
     foreach ($worldRegions as $key => $value) {
       $worldRegionsSelect[$value["id"]] = $value["name"];
     }
 
-    $this->add('text', 'name', ts('Country name', array('domain' => 'com.ixiam.modules.countrymanager')));
-    $this->add('select', 'region_id', ts('World Regions', array('domain' => 'com.ixiam.modules.countrymanager')), $worldRegionsSelect);
+    $this->add('text', 'name', ts('Country name', ['domain' => 'com.ixiam.modules.countrymanager']));
+    $this->add('select', 'region_id', ts('World Regions', ['domain' => 'com.ixiam.modules.countrymanager']), $worldRegionsSelect);
   }
 
   /**
@@ -40,7 +40,7 @@ class CRM_Admin_Form_Country extends CRM_Admin_Form {
    * @static
    */
   static function formRule($fields, $files, $self) {
-    $errors = array();
+    $errors = [];
     return empty($errors) ? TRUE : $errors;
   }
 
@@ -54,7 +54,7 @@ class CRM_Admin_Form_Country extends CRM_Admin_Form {
   public function postProcess() {
     CRM_Utils_System::flushCache();
     if ($this->_action & CRM_Core_Action::DELETE) {
-        CRM_Core_Session::setStatus(ts('Are you sure to delete the Country?', array('domain' => 'com.ixiam.modules.countrymanager')));
+        CRM_Core_Session::setStatus(ts('Are you sure to delete the Country?', ['domain' => 'com.ixiam.modules.countrymanager']));
       return;
     }
     // store the submitted values in an array
@@ -70,7 +70,7 @@ class CRM_Admin_Form_Country extends CRM_Admin_Form {
 
     $country = CRM_Countrymanager_BAO_Country::addAndSave($params);
     CRM_Core_Session::setStatus(ts("The Country region '%1' has been saved.",
-      array(1 => $country->name, 'domain' => 'com.ixiam.modules.countrymanager')
+      [1 => $country->name, 'domain' => 'com.ixiam.modules.countrymanager']
     ));
   }
 }

@@ -25,20 +25,20 @@ class CRM_Countrymanager_BAO_StateProvince extends CRM_Countrymanager_DAO_StateP
   }
 
 	static function getListStateProvince($country_id = 0) {
-		$params = array();
+		$params = [];
 		$sql = "SELECT * FROM `civicrm_state_province`";
 
 		if($country_id != 0) {
 			$sql .= "WHERE	country_id = %1
 			";
-			$params[1] = array($country_id, 'Integer');
+			$params[1] = [$country_id, 'Integer'];
 		}
 		$sql .= "ORDER BY name;";
 
 		$dao = CRM_Core_DAO::executeQuery($sql, $params);
-		$stateProvince = array();
+		$stateProvince = [];
 		while($dao->fetch()) {
-			$stateProvince[$dao->id] = array("id" => $dao->id,"name" => $dao->name);
+			$stateProvince[$dao->id] = ["id" => $dao->id,"name" => $dao->name];
 		}
 		return $stateProvince;
 	}

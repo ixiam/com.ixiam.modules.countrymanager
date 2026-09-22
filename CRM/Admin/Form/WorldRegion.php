@@ -30,7 +30,7 @@ class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
    * @static
    */
   static function formRule($fields, $files, $self) {
-    $errors = array();
+    $errors = [];
     return empty($errors) ? TRUE : $errors;
   }
 
@@ -60,7 +60,7 @@ class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
 
     $worldRegion = CRM_Countrymanager_BAO_WorldRegion::addAndSave($params);
     CRM_Core_Session::setStatus(ts("The World region '%1' has been saved.",
-      array(1 => $worldRegion->name, 'domain' => 'com.ixiam.modules.countrymanager')
+      [1 => $worldRegion->name, 'domain' => 'com.ixiam.modules.countrymanager']
     ));
 
 

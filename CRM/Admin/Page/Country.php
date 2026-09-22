@@ -28,22 +28,22 @@ class CRM_Admin_Page_Country extends CRM_Core_Page_Basic {
    */
   function &links() {
     if (!(self::$_links)) {
-      self::$_links = array(
+      self::$_links = [
         CRM_Core_Action::UPDATE =>
-        array(
+        [
           'name' => ts('Edit'),
           'url' => 'civicrm/admin/country',
           'qs' => 'action=update&id=%%id%%&reset=1',
           'title' => ts('Edit Country'),
-        ),
+        ],
         "states" =>
-        array(
+        [
           'name' => ts('Go to the states'),
           'url' => 'civicrm/admin/stateprovince',
           'qs' => 'country_id=%%id%%&reset=1',
           'title' => ts('Edit Country'),
-        ),
-      );
+        ],
+      ];
     }
     return self::$_links;
   }
@@ -58,7 +58,7 @@ class CRM_Admin_Page_Country extends CRM_Core_Page_Basic {
 
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,
-        array('id' => $value['id'])
+        ['id' => $value['id']]
       );
     }
     $this->assign('rows', $rows);

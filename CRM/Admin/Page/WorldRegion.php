@@ -28,22 +28,22 @@ class CRM_Admin_Page_WorldRegion extends CRM_Core_Page_Basic {
    */
   function &links() {    
     if (!(self::$_links)) {
-      self::$_links = array( 
+      self::$_links = [
         CRM_Core_Action::UPDATE =>
-        array(
+        [
           'name' => ts('Edit'),
           'url' => 'civicrm/admin/worldregion',
           'qs' => 'action=update&id=%%id%%&reset=1',
           'title' => ts('Edit World Region'),
-        ),
+        ],
         "countries" =>
-        array(
+        [
           'name' => ts('Go to the countries'),
           'url' => 'civicrm/admin/country',
           'qs' => 'reset=1&action=browse&region_id=%%id%%',
           'title' => ts('Edit Country'),
-        ),       
-      );
+        ],
+      ];
     }
     return self::$_links;
   }
@@ -56,7 +56,7 @@ class CRM_Admin_Page_WorldRegion extends CRM_Core_Page_Basic {
     $rows = CRM_Countrymanager_BAO_WorldRegion::getListWorldRegion();
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,
-        array('id' => $value['id'])
+        ['id' => $value['id']]
       );
     }
     $this->assign('rows', $rows);

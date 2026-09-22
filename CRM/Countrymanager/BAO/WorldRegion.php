@@ -26,18 +26,18 @@ class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldReg
   }
 
 	static function getListWorldRegion($idWorldRegion = 0) {
-		$params = array();
+		$params = [];
 		$sql = "SELECT * FROM `civicrm_worldregion`";
 
 		if($idWorldRegion != 0) {
 			$sql .= "WHERE	id = %1";
-			$params[1] = array($fieldId, 'Integer');
+			$params[1] = [$fieldId, 'Integer'];
 		}
 
 		$dao = CRM_Core_DAO::executeQuery($sql, $params);
-		$worldRegion = array();
+		$worldRegion = [];
 		while($dao->fetch()) {
-			$worldRegion[$dao->id] = array("id" => $dao->id,"name" => $dao->name);
+			$worldRegion[$dao->id] = ["id" => $dao->id,"name" => $dao->name];
 		}
 		return $worldRegion;
 	}

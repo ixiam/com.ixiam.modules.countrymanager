@@ -21,7 +21,7 @@ class CRM_Admin_Form_StateProvince extends CRM_Admin_Form {
 
     $countries = CRM_Countrymanager_BAO_Country::getListCountry();
 
-    $countriesSelect = array();
+    $countriesSelect = [];
     foreach ($countries as $key => $value) {
       $countriesSelect[$value["id"]] = $value["name"];
     }
@@ -42,7 +42,7 @@ class CRM_Admin_Form_StateProvince extends CRM_Admin_Form {
    * @static
    */
   static function formRule($fields, $files, $self) {
-    $errors = array();
+    $errors = [];
     return empty($errors) ? TRUE : $errors;
   }
 
@@ -71,7 +71,7 @@ class CRM_Admin_Form_StateProvince extends CRM_Admin_Form {
 
     $stateProvince = CRM_Countrymanager_BAO_StateProvince::addAndSave($params);
     CRM_Core_Session::setStatus(ts("The state/province region '%1' has been saved.",
-        array(1 => $stateProvince->name, 'domain' => 'com.ixiam.modules.countrymanager')
+        [1 => $stateProvince->name, 'domain' => 'com.ixiam.modules.countrymanager']
       ));
   }
 }
