@@ -47,8 +47,8 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
   }
 
   function browse() {    
-    $country_id = CRM_Utils_Request::retrieve('country_id', 'Integer', CRM_Core_DAO::$_nullObject) ;
-    $crmRowCount = CRM_Utils_Request::retrieve('crmRowCount', 'Integer', CRM_Core_DAO::$_nullObject);
+    $country_id = CRM_Utils_Request::retrieve('country_id', 'Integer', NULL) ;
+    $crmRowCount = CRM_Utils_Request::retrieve('crmRowCount', 'Integer', NULL);
     if($crmRowCount >= 1){
       $this->_rowCount = $crmRowCount;
     }
@@ -59,7 +59,7 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
         array('id' => $value['id'])
       );
     }
-    $crmPID = CRM_Utils_Request::retrieve('crmPID', 'Integer', CRM_Core_DAO::$_nullObject) ;
+    $crmPID = CRM_Utils_Request::retrieve('crmPID', 'Integer', NULL) ;
 
     if($crmPID >= 1) {
       $crmPID = $crmPID - 1 ;

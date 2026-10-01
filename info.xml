@@ -12,7 +12,7 @@
   <version>1.0</version>
   <develStage>stable</develStage>
   <compatibility>
-    <ver>5.27</ver>
+    <ver>5.60</ver>
   </compatibility>
   <comments>Manage world regions, countries and states</comments>
   <civix>

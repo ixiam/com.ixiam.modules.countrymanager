@@ -53,7 +53,7 @@ class CRM_Admin_Page_Country extends CRM_Core_Page_Basic {
   }
 
   function browse() {
-    $region_id = CRM_Utils_Request::retrieve('region_id', 'Integer', CRM_Core_DAO::$_nullObject);
+    $region_id = CRM_Utils_Request::retrieve('region_id', 'Integer', NULL);
     $rows = CRM_Countrymanager_BAO_Country::getListCountry($region_id);
 
     foreach ($rows as $key => $value) {
