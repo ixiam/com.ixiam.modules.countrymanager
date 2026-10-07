@@ -14,9 +14,6 @@ function countrymanager_civicrm_config(&$config) {
  */
 function countrymanager_civicrm_install() {
 
-	require_once 'CRM/Core/BAO/Navigation.php';
-	require_once 'CRM/Core/Menu.php';
-
 	$query = "SELECT id FROM `civicrm_navigation` WHERE name = 'Localization'";
 	$dao = CRM_Core_DAO::executeQuery($query);
 	while ( $dao->fetch() ) {
